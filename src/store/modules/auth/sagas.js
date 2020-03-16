@@ -1,6 +1,8 @@
 import { takeLatest, call, put, all } from 'redux-saga/effects';
 import { Alert } from 'react-native';
 
+import * as RootNavigation from '~/services/RootNavigation';
+
 import api from '~/services/api';
 
 import { signInSuccess, signFailure } from './actions';
@@ -27,6 +29,7 @@ export function* signIn({ payload }) {
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
     yield put(signInSuccess(token, user));
+    RootNavigation.navigate('App');
 
     // history.push('/dashboard');
   } catch (error) {
