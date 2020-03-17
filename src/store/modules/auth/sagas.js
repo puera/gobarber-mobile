@@ -29,9 +29,8 @@ export function* signIn({ payload }) {
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
     yield put(signInSuccess(token, user));
-    RootNavigation.navigate('App');
 
-    // history.push('/dashboard');
+    RootNavigation.navigate('App');
   } catch (error) {
     Alert.alert(
       'Falha na autenticação',
@@ -51,7 +50,8 @@ export function* signUp({ payload }) {
       password,
     });
 
-    // history.push('/');
+    RootNavigation.navigate('SignIn');
+
     Alert.alert('Sucesso', 'Cadastro feito com sucesso!');
     yield put(signFailure());
   } catch (error) {
@@ -75,7 +75,7 @@ export function setToken({ payload }) {
 }
 
 export function signOut() {
-  // history.push('/');
+  RootNavigation.navigate('SignIn');
 }
 
 export default all([
