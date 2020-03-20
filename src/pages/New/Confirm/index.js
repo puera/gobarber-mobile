@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { formatRelative, parseISO, addHours } from 'date-fns';
+import { formatRelative, parseISO } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import Background from '~/components/Background';
 
@@ -13,7 +13,7 @@ export default function Confirm({ route, navigation }) {
 
   const dateFormatted = useMemo(
     () =>
-      formatRelative(addHours(parseISO(time), 1), new Date(), {
+      formatRelative(parseISO(time), new Date(), {
         locale: ptBR,
       }),
     [time]

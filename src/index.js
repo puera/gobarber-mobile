@@ -6,7 +6,7 @@ import { StatusBar } from 'react-native';
 import './config/ReactotronConfig';
 
 import { store, persistor } from './store';
-import Routes from './routes/routes';
+import Routes from './routes';
 
 export default function Index() {
   return (
